@@ -1,3 +1,4 @@
 grant      principal JAAS.JAAS_Principal "user1" {
      permission JAAS.JAAS_Permission "access";
+     permission java.util.PropertyPermission "user.home", "read";
 };
