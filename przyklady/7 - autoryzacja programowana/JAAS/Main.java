@@ -40,7 +40,7 @@ public class Main {
 			System.out.println("przez uzytkownika " + loginContext.getSubject().getPrincipals().iterator().next().getName());
 			break;
 		case action2:
-			PrivilegedAction<Object> action2 = new Action2(loginContext.getSubject());
+			PrivilegedAction<Object> action2 = new Action2();
 			Subject.doAs(loginContext.getSubject(), action2);
 			break;
 		case logout:
