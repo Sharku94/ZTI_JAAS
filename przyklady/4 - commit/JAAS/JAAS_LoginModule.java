@@ -21,10 +21,14 @@ public class JAAS_LoginModule implements LoginModule {
 	private CallbackHandler callbackHandler = null;
 	private JAAS_Principal jaas_Principal = null;
 
-	@Override
+@Override
 	public boolean abort() throws LoginException {
+		if (subject != null && jaas_Principal != null && subject.getPrincipals().contains(jaas_Principal))
+			subject.getPrincipals().remove(jaas_Principal);
+		subject = null;
+		jaas_Principal = null;
 
-		return false;
+		return true;
 	}
 
 	@Override
